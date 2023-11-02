@@ -15,9 +15,9 @@ display: flex;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 150px;
+    width: 10.5rem;
 }
 .image {
-    width: 2rem;
+    width: 1.5rem;
     margin-top: 3px;
 }

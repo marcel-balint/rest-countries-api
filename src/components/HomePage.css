@@ -1,0 +1,14 @@
+.home-page{
+    background-color: #eee;
+}
+
+.home-page_content{
+    width: 80%;
+    margin: auto;
+}
+
+.home-page_top {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+}

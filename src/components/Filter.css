@@ -1,0 +1,10 @@
+select {
+    width: 13rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    padding-left: 1.7rem;
+    border: none;
+    outline: none;
+    -webkit-box-shadow: 1px 1px 2px 1px #ccc; 
+    box-shadow: 1px 1px 2px 1px #ccc;
+}
