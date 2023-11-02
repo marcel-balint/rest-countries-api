@@ -5,25 +5,45 @@ import Navigation from "./components/Navigation";
 
 function App() {
   const [countries, setCountries] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [error, setError] = useState(false);
 
-  const getCountries = async () => {
+  const getCountries = async (url) => {
     try {
-      const response = await fetch("https://restcountries.com/v3.1/all");
+      // Get countries
+      setError(false);
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
       const data = await response.json();
-      console.log(data);
       setCountries(data);
     } catch (error) {
+      setCountries([]);
+      setError(true);
       console.log("Something is wrong here ...", error);
     }
   };
 
   useEffect(() => {
-    getCountries();
+    getCountries(`https://restcountries.com/v3.1/all`);
   }, []);
+
+  useEffect(() => {
+    if (searchTerm) {
+      getCountries(`https://restcountries.com/v3.1/name/${searchTerm}`);
+    }
+  }, [searchTerm]);
+
   return (
     <div className="App">
       <Navigation />
-      <HomePage countries={countries} />
+      <HomePage
+        countries={countries}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
+        error={error}
+      />
     </div>
   );
 }

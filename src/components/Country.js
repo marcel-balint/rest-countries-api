@@ -1,4 +1,5 @@
 import React from "react";
+import format from "../helpers";
 
 import "./Country.css";
 
@@ -12,7 +13,7 @@ const Country = ({ country }) => {
         <h2>{country.name.official}</h2>
         <div className="details">
           <p>
-            <strong> Population:</strong> {country.population}
+            <strong> Population:</strong> {country.population.format()}
           </p>
           <p>
             <strong> Region:</strong> {country.region}
