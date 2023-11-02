@@ -1,6 +1,7 @@
 
 form{
     display: flex;
+    margin-left: 10px;
 }
 input {
     padding-left: 2.5rem;

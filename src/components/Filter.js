@@ -5,7 +5,7 @@ const Filter = () => {
   return (
     <div className="select">
       <select>
-        <option selected>Filter By Region</option>
+        <option defaultValue={`Filter By Region`}>Filter By Region</option>
         <option>1</option>
         <option>2</option>
         <option>3</option>
