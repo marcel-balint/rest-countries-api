@@ -5,13 +5,19 @@ import Filter from "./Filter";
 import "./HomePage.css";
 import Countries from "./Countries";
 
-const HomePage = ({ countries, searchTerm, setSearchTerm, error }) => {
+const HomePage = ({
+  countries,
+  searchTerm,
+  setSearchTerm,
+  setFilterTerm,
+  error,
+}) => {
   return (
     <div className="home-page">
       <div className="home-page_content">
         <div className="home-page_top">
           <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-          <Filter />
+          <Filter setFilterTerm={setFilterTerm} />
         </div>
         <div className="home-page_bottom">
           {error ? (

@@ -6,6 +6,7 @@ import Navigation from "./components/Navigation";
 function App() {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [filterTerm, setFilterTerm] = useState("");
   const [error, setError] = useState(false);
 
   const getCountries = async (url) => {
@@ -18,6 +19,7 @@ function App() {
       }
       const data = await response.json();
       setCountries(data);
+      console.log(data);
     } catch (error) {
       setCountries([]);
       setError(true);
@@ -35,6 +37,12 @@ function App() {
     }
   }, [searchTerm]);
 
+  useEffect(() => {
+    if (filterTerm) {
+      getCountries(`https://restcountries.com/v3.1/region/${filterTerm}`);
+    }
+  }, [filterTerm]);
+
   return (
     <div className="App">
       <Navigation />
@@ -42,6 +50,7 @@ function App() {
         countries={countries}
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
+        setFilterTerm={setFilterTerm}
         error={error}
       />
     </div>
