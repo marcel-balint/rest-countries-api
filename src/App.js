@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import "./App.css";
+import usePagination from "./components/usePagination";
 import HomePage from "./components/HomePage";
 import Navigation from "./components/Navigation";
+import "./App.css";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -43,16 +44,37 @@ function App() {
     }
   }, [filterTerm]);
 
+  // Pagination
+  const { pageNumber, changePage, pageData, nextPage, previousPage } =
+    usePagination(countries, 9);
+
+  useEffect(() => {
+    pageData(pageData);
+  }, [pageNumber]);
+
   return (
     <div className="App">
       <Navigation />
       <HomePage
-        countries={countries}
+        countries={pageData()}
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         setFilterTerm={setFilterTerm}
         error={error}
       />
+      {/* Pagination */}
+      <div className="pagination">
+        <b
+          className={`prev-btn ${pageNumber === 0 ? "light" : ""}`}
+          onClick={previousPage}
+        >
+          Prev
+        </b>
+        <p className="page-number">{pageNumber}</p>
+        <b className="next-btn" onClick={nextPage}>
+          Next
+        </b>
+      </div>
     </div>
   );
 }

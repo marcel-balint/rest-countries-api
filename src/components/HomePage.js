@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import Filter from "./Filter";
-
-import "./HomePage.css";
 import Countries from "./Countries";
+import "./HomePage.css";
 
 const HomePage = ({
   countries,

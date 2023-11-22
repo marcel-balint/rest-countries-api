@@ -28,6 +28,24 @@
   color: #61dafb;
 }
 
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  margin: auto;
+  align-items: center;
+  padding-bottom: 5rem;
+}
+
+.prev-btn,
+.next-btn {
+  cursor: pointer;
+}
+
+.light {
+  color: #ccc;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
