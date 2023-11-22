@@ -2,7 +2,7 @@ import React from "react";
 import searchIcon from "../images/incon-search.svg";
 import "./SearchBar.css";
 
-const SearchBar = ({ searchTerm, setSearchTerm }) => {
+const SearchBar = ({ searchTerm, setSearchTerm, theme }) => {
   const handleInput = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -15,6 +15,7 @@ const SearchBar = ({ searchTerm, setSearchTerm }) => {
           onInput={handleInput}
           value={searchTerm}
           placeholder="Search for a country..."
+          style={{ backgroundColor: `${theme ? "#ccc" : ""}` }}
         />
       </form>
     </div>

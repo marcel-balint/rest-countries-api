@@ -20,4 +20,5 @@ display: flex;
 .image {
     width: 1.5rem;
     margin-top: 3px;
+    cursor: pointer;
 }

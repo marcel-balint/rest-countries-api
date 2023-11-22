@@ -9,14 +9,22 @@ const HomePage = ({
   searchTerm,
   setSearchTerm,
   setFilterTerm,
+  theme,
   error,
 }) => {
   return (
-    <div className="home-page">
+    <div
+      className="home-page"
+      style={{ backgroundColor: `${theme ? "rgb(113 113 113)" : ""}` }}
+    >
       <div className="home-page_content">
         <div className="home-page_top">
-          <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-          <Filter setFilterTerm={setFilterTerm} />
+          <SearchBar
+            searchTerm={searchTerm}
+            setSearchTerm={setSearchTerm}
+            theme={theme}
+          />
+          <Filter setFilterTerm={setFilterTerm} theme={theme} />
         </div>
         <div className="home-page_bottom">
           {error ? (
@@ -24,7 +32,7 @@ const HomePage = ({
               <p>No results found.</p>
             </div>
           ) : null}
-          <Countries countries={countries} />
+          <Countries countries={countries} theme={theme} />
         </div>
       </div>
     </div>

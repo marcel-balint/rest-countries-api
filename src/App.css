@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -28,7 +29,7 @@
   color: #61dafb;
 }
 
-.pagination {
+.pagination-content {
   display: flex;
   justify-content: space-between;
   width: 20%;

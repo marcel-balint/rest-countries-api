@@ -1,14 +1,17 @@
 import React from "react";
 import "./Filter.css";
 
-const Filter = ({ setFilterTerm }) => {
+const Filter = ({ setFilterTerm, theme }) => {
   const handleFilter = (e) => {
     setFilterTerm(e.target.value);
   };
 
   return (
     <div className="select">
-      <select onChange={handleFilter}>
+      <select
+        onChange={handleFilter}
+        style={{ backgroundColor: `${theme ? "#ccc" : ""}` }}
+      >
         <option defaultValue={`Filter By Region`}>Filter By Region</option>
         <option value="Africa">Africa</option>
         <option value="America">America</option>

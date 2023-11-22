@@ -8,6 +8,7 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterTerm, setFilterTerm] = useState("");
+  const [theme, setTheme] = useState("light");
   const [error, setError] = useState(false);
 
   const getCountries = async (url) => {
@@ -54,26 +55,35 @@ function App() {
 
   return (
     <div className="App">
-      <Navigation />
+      <Navigation darkMode={theme} setDarkMode={setTheme} />
       <HomePage
         countries={pageData()}
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
         setFilterTerm={setFilterTerm}
+        theme={theme}
         error={error}
       />
       {/* Pagination */}
-      <div className="pagination">
-        <b
-          className={`prev-btn ${pageNumber === 0 ? "light" : ""}`}
-          onClick={previousPage}
-        >
-          Prev
-        </b>
-        <p className="page-number">{pageNumber}</p>
-        <b className="next-btn" onClick={nextPage}>
-          Next
-        </b>
+      <div
+        className="pagination"
+        style={{
+          backgroundColor: `${theme ? "#414141" : ""}`,
+          color: `${theme ? "#eee" : ""}`,
+        }}
+      >
+        <div className="pagination-content">
+          <b
+            className={`prev-btn ${pageNumber === 0 ? "light" : ""}`}
+            onClick={previousPage}
+          >
+            Prev
+          </b>
+          <p className="page-number">{pageNumber}</p>
+          <b className="next-btn" onClick={nextPage}>
+            Next
+          </b>
+        </div>
       </div>
     </div>
   );
