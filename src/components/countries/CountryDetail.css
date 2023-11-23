@@ -1,0 +1,26 @@
+.detail-container {
+    margin-top: 3rem;
+    display: flex;
+}
+.detail-content {
+    margin: auto;
+    width: 80%;
+}
+
+.back-btn{
+    margin-bottom: 2rem;
+    display: flex;
+}
+.back-btn a {
+    display: flex;
+    align-items: end;
+    box-shadow: 0px 0px 6px 0px rgba(0,0,0,0.75);
+    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
+    border-radius: 2px;
+    color: #000;
+    text-decoration: none;
+}
+.back-btn img{
+    height: 20px;
+    margin-right: 5px;
+}

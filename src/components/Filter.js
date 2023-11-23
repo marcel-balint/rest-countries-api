@@ -12,7 +12,7 @@ const Filter = ({ setFilterTerm, theme }) => {
         onChange={handleFilter}
         style={{ backgroundColor: `${theme ? "#ccc" : ""}` }}
       >
-        <option selected>Filter By Region</option>
+        <option defaultChecked>Filter By Region</option>
         <option value="Africa">Africa</option>
         <option value="America">America</option>
         <option value="Asia">Asia</option>

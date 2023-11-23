@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import HomePage from "./components/HomePage";
 import Navigation from "./components/Navigation";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import CountryDetail from "./components/countries/CountryDetail";
 
 function App() {
   const [countries, setCountries] = useState([]);
@@ -48,14 +50,22 @@ function App() {
   return (
     <div className="App">
       <Navigation darkMode={theme} setDarkMode={setTheme} />
-      <HomePage
-        countries={countries}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        setFilterTerm={setFilterTerm}
-        theme={theme}
-        error={error}
-      />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage
+              countries={countries}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              setFilterTerm={setFilterTerm}
+              theme={theme}
+              error={error}
+            />
+          }
+        />
+        <Route path="country-detail/:name" element={<CountryDetail />} />
+      </Routes>
     </div>
   );
 }

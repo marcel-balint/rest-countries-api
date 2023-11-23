@@ -2,6 +2,7 @@ import React from "react";
 import format from "../../helpers";
 
 import "./Country.css";
+import { Link } from "react-router-dom";
 
 const Country = ({ country, theme }) => {
   return (
@@ -23,6 +24,11 @@ const Country = ({ country, theme }) => {
           </p>
         </div>
       </div>
+
+      <Link to={`country-detail/${country.name.official}`}>
+        {" "}
+        <p>detail</p>
+      </Link>
     </div>
   );
 };
