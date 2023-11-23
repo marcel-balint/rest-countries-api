@@ -20,8 +20,28 @@
     flex-wrap: wrap;
     gap: 4rem;
     justify-content: space-between;
+    min-height: 57vh;
 }
 
 .no-results {
     width: 100%;
 }
+
+.pagination-content {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    margin: auto;
+    align-items: center;
+    padding-bottom: 5rem;
+  }
+  
+  .prev-btn,
+  .next-btn {
+    cursor: pointer;
+  }
+  
+  .light {
+    color: #ccc;
+  }
+  

@@ -1,5 +1,5 @@
 import React from "react";
-import format from "../helpers";
+import format from "../../helpers";
 
 import "./Country.css";
 

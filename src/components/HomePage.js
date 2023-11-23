@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import Filter from "./Filter";
-import Countries from "./Countries";
+import Countries from "./countries/Countries";
+import usePagination from "./usePagination";
 import "./HomePage.css";
 
 const HomePage = ({
@@ -12,6 +13,13 @@ const HomePage = ({
   theme,
   error,
 }) => {
+  // Pagination
+  const { pageNumber, changePage, pageData, nextPage, previousPage } =
+    usePagination(countries, 9);
+
+  useEffect(() => {
+    pageData(pageData);
+  }, [pageNumber]);
   return (
     <div
       className="home-page"
@@ -32,7 +40,28 @@ const HomePage = ({
               <p>No results found.</p>
             </div>
           ) : null}
-          <Countries countries={countries} theme={theme} />
+          <Countries countries={pageData()} theme={theme} />
+        </div>
+      </div>
+      {/* Pagination */}
+      <div
+        className="pagination"
+        style={{
+          backgroundColor: `${theme ? "#414141" : ""}`,
+          color: `${theme ? "#eee" : ""}`,
+        }}
+      >
+        <div className="pagination-content">
+          <b
+            className={`prev-btn ${pageNumber === 0 ? "light" : ""}`}
+            onClick={previousPage}
+          >
+            Prev
+          </b>
+          <p className="page-number">{pageNumber}</p>
+          <b className="next-btn" onClick={nextPage}>
+            Next
+          </b>
         </div>
       </div>
     </div>
