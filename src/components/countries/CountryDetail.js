@@ -5,10 +5,11 @@ import backIcon from "../../images/back-icon.svg";
 import "./CountryDetail.css";
 
 const CountryDetail = () => {
-  const [country, setCountry] = useState();
+  const [country, setCountry] = useState(null);
   const [languages, setLaguages] = useState([]);
   const [borderCountriesInit, setBorderCountriesInit] = useState([]);
   const [borderCountries, setBorderCounties] = useState([]);
+  const [linkedBorderCountry, setLinkedBorderCountry] = useState(null);
 
   const { name } = useParams();
   const languagesArray = [];
@@ -16,6 +17,7 @@ const CountryDetail = () => {
 
   const getCountry = async (url) => {
     try {
+      setCountry(null);
       const response = await fetch(url);
       const data = await response.json();
       setCountry(data);
@@ -37,12 +39,17 @@ const CountryDetail = () => {
 
   const getBorderCountries = async (url) => {
     try {
+      setBorderCounties([]);
       const response = await fetch(url);
       const data = await response.json();
       setBorderCounties((prevCountries) => [...prevCountries, data[0]]);
     } catch (error) {
       console.log("Something went wrong", error);
     }
+  };
+
+  const linkBorderCountry = (country) => {
+    setLinkedBorderCountry(country);
   };
 
   useEffect(() => {
@@ -57,6 +64,15 @@ const CountryDetail = () => {
       );
     });
   }, [borderCountriesInit]);
+
+  useEffect(() => {
+    // Get the border country
+    if (linkedBorderCountry) {
+      getCountry(
+        `https://restcountries.com/v3.1/name/${linkedBorderCountry}?fullText=true`
+      );
+    }
+  }, [linkedBorderCountry]);
 
   return (
     <div className="detail-container">
@@ -110,7 +126,11 @@ const CountryDetail = () => {
               <strong>Border Countries: </strong>
               {borderCountries.length > 0 ? (
                 borderCountries?.map((country, index) => (
-                  <span className="border-country" key={index}>
+                  <span
+                    className="border-country"
+                    key={index}
+                    onClick={() => linkBorderCountry(country?.name?.official)}
+                  >
                     {" "}
                     {country?.name?.common}{" "}
                   </span>

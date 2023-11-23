@@ -11,6 +11,10 @@
     margin-bottom: 5rem;
     display: flex;
 }
+
+.back-btn:hover{
+    font-weight: bold;
+}
 .back-btn a {
     display: flex;
     align-items: end;
@@ -71,6 +75,11 @@
     color: #000;
     text-decoration: none;
     margin: 1rem .5rem 0rem 0rem;
+    cursor: pointer;
+}
+
+.border-country:hover{
+  color: #989898;
 }
 
 .no-borders,

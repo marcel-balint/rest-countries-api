@@ -25,9 +25,12 @@ const Country = ({ country, theme }) => {
         </div>
       </div>
 
-      <Link to={`country-detail/${country.name.official}`}>
+      <Link
+        className="country-detail_link"
+        to={`country-detail/${country.name.official}`}
+      >
         {" "}
-        <p>detail</p>
+        <p>Details</p>
       </Link>
     </div>
   );
