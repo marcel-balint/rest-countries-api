@@ -64,7 +64,10 @@ function App() {
             />
           }
         />
-        <Route path="country-detail/:name" element={<CountryDetail />} />
+        <Route
+          path="country-detail/:name"
+          element={<CountryDetail theme={theme} />}
+        />
       </Routes>
     </div>
   );

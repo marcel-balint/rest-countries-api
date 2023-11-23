@@ -1,13 +1,18 @@
 .detail-container {
-    margin-top: 3rem;
+    /* padding-top: 3rem; */
     display: flex;
+    background-color: #eee;
+    height: 100vh;
+
 }
 .detail-content {
     margin: auto;
     width: 80%;
+    height: 100vh;
 }
 
 .back-btn{
+    margin-top: 3rem;
     margin-bottom: 5rem;
     display: flex;
 }
@@ -76,6 +81,7 @@
     text-decoration: none;
     margin: 1rem .5rem 0rem 0rem;
     cursor: pointer;
+    background-color: #fff;
 }
 
 .border-country:hover{
@@ -91,3 +97,32 @@
     flex-wrap: wrap;
     align-items: baseline;
 }
+
+@media only screen and (max-width: 1050px) {
+    .country-box{
+        gap: 3rem;
+    }
+   }
+
+   @media only screen and (max-width: 870px) {
+    .country-box{
+        gap: 2rem;
+    }
+   }
+
+   @media only screen and (max-width: 820px) {
+    .detail-container{
+        padding-bottom: 18rem;
+    }
+    .country-box{
+        flex-direction: column;
+        padding-bottom: 3rem;
+     
+    }
+   }
+
+   @media only screen and (max-width: 560px) {
+     .country-stats{
+        flex-direction: column;
+     }
+   }

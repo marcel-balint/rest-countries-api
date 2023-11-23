@@ -18,3 +18,23 @@ input {
     margin-right: -30px;
     z-index: 1;
 }
+
+@media only screen and (max-width: 490px) {
+    form{
+        width: 60%;
+    }
+    input{
+        height: 1.6rem;
+        font-size: .9rem;
+    }
+   }
+
+
+   @media only screen and (max-width: 400px) {
+    form{
+        width: 40%;
+    }
+    input {
+        width: 13rem;
+    }
+   }

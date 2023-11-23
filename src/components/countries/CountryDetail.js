@@ -4,7 +4,7 @@ import format from "../../helpers";
 import backIcon from "../../images/back-icon.svg";
 import "./CountryDetail.css";
 
-const CountryDetail = () => {
+const CountryDetail = ({ theme }) => {
   const [country, setCountry] = useState(null);
   const [languages, setLaguages] = useState([]);
   const [borderCountriesInit, setBorderCountriesInit] = useState([]);
@@ -75,7 +75,10 @@ const CountryDetail = () => {
   }, [linkedBorderCountry]);
 
   return (
-    <div className="detail-container">
+    <div
+      className={`detail-container`}
+      style={{ backgroundColor: `${theme ? "rgb(113, 113, 113)" : ""}` }}
+    >
       <div className="detail-content">
         <div className="back-btn">
           <Link to="/">
@@ -87,7 +90,10 @@ const CountryDetail = () => {
           <div className="country-flag">
             <img src={country?.[0]?.flags?.svg} alt="Flag" />
           </div>
-          <div className="country-detail">
+          <div
+            className="country-detail"
+            style={{ color: `${theme ? "#eee" : ""}` }}
+          >
             <h2>{country?.[0]?.name?.common}</h2>
             <div className="country-stats">
               <div className="column">
@@ -130,6 +136,10 @@ const CountryDetail = () => {
                     className="border-country"
                     key={index}
                     onClick={() => linkBorderCountry(country?.name?.official)}
+                    style={{
+                      color: `${theme ? "#eee" : ""}`,
+                      backgroundColor: `${theme ? "#111" : ""}`,
+                    }}
                   >
                     {" "}
                     {country?.name?.common}{" "}

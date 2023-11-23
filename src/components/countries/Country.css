@@ -40,3 +40,30 @@
 .country-detail_link:hover{
     font-weight: bold;
 }
+
+@media only screen and (max-width: 825px) {
+    .country{
+        width: 45%;
+    }
+   }
+
+   @media only screen and (max-width: 725px) {
+    .country{
+        width: 70%;
+    }
+   }
+
+   @media only screen and (max-width: 637px) {
+    .country{
+        width: 90%;
+    }
+   }
+
+   @media only screen and (max-width: 570px) {
+    .country{
+        width: 100%;
+    }
+    .country-description h2{
+        font-size: 1rem;
+    }
+   }

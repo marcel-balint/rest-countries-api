@@ -45,3 +45,36 @@
     color: #ccc;
   }
   
+  @media only screen and (max-width: 1600px) {
+   .home-page_bottom{
+    gap: 3rem;
+   }
+  }
+
+  @media only screen and (max-width: 1295px) {
+    .home-page_bottom{
+     gap: 2rem;
+    }
+   }
+
+
+   @media only screen and (max-width: 750px) {
+    .home-page_bottom{
+     justify-content: center;
+    }
+    .home-page_top {
+        flex-direction: column;
+        align-items: baseline;
+        height: 7rem;
+    }
+   }
+
+   @media only screen and (max-width: 500px) {
+    .home-page_top{
+        height: 5rem;
+    }
+    .pagination-content{
+        width: 50%;
+    }
+   }
+ 
