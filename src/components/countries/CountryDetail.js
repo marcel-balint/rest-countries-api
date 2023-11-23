@@ -88,11 +88,11 @@ const CountryDetail = () => {
                 <p>
                   <strong>Sub Region:</strong> {country?.[0]?.subregion}
                 </p>
+              </div>
+              <div className="column">
                 <p>
                   <strong>Capital:</strong> {country?.[0]?.capital}
                 </p>
-              </div>
-              <div className="column">
                 <p>
                   <strong>Top Level Domain:</strong>{" "}
                   {country?.[0]?.altSpellings?.[0]}
@@ -107,16 +107,17 @@ const CountryDetail = () => {
             </div>
 
             <div className="border-countries">
-              <p>
-                <strong>Border Countries:</strong>
-                {borderCountries.length > 0 ? (
-                  borderCountries?.map((country, index) => (
-                    <span key={index}> {country?.name?.common} </span>
-                  ))
-                ) : (
-                  <span> No borders</span>
-                )}
-              </p>
+              <strong>Border Countries: </strong>
+              {borderCountries.length > 0 ? (
+                borderCountries?.map((country, index) => (
+                  <span className="border-country" key={index}>
+                    {" "}
+                    {country?.name?.common}{" "}
+                  </span>
+                ))
+              ) : (
+                <span className="no-borders"> No borders</span>
+              )}
             </div>
           </div>
         </div>
