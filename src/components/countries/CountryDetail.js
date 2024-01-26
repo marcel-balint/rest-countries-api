@@ -151,7 +151,7 @@ const CountryDetail = ({ theme }) => {
           </div>
         </div>
         <div className="chat-container">
-          <h1>Chat</h1>
+          <h1 className="main-title">Chat</h1>
           <Question
             title="What is the big deal with React.js?"
             text="What are some facts about why react is superior ?"
