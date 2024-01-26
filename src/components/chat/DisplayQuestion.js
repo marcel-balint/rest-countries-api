@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Question.css";
+import "./DisplayQuestion.css";
 import Answer from "./Answer";
 
 const Question = (props) => {

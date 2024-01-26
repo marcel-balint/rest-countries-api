@@ -3,7 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import format from "../../helpers";
 import backIcon from "../../images/back-icon.svg";
 import "./CountryDetail.css";
-import Question from "../chat/Question";
+import Question from "../chat/DisplayQuestion";
+import AskQuestion from "../chat/AskQuestion";
 
 const CountryDetail = ({ theme }) => {
   const [country, setCountry] = useState(null);
@@ -152,6 +153,7 @@ const CountryDetail = ({ theme }) => {
         </div>
         <div className="chat-container">
           <h1 className="main-title">Chat</h1>
+          <AskQuestion />
           <Question
             title="What is the big deal with React.js?"
             text="What are some facts about why react is superior ?"
