@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import format from "../../helpers";
 import backIcon from "../../images/back-icon.svg";
 import "./CountryDetail.css";
+import Question from "../chat/Question";
 
 const CountryDetail = ({ theme }) => {
   const [country, setCountry] = useState(null);
@@ -29,9 +30,7 @@ const CountryDetail = ({ theme }) => {
       setLaguages(languagesArray);
       // Border countries initials
       boderCountriesInitArray.push(...data[0].borders);
-      console.log("pushing", ...data[0].borders);
       setBorderCountriesInit(boderCountriesInitArray);
-      console.log(country);
     } catch (error) {
       console.log("Something went wrong", error);
     }
@@ -73,7 +72,7 @@ const CountryDetail = ({ theme }) => {
       );
     }
   }, [linkedBorderCountry]);
-
+  console.log(country?.[0].name.common);
   return (
     <div
       className={`detail-container`}
@@ -150,6 +149,18 @@ const CountryDetail = ({ theme }) => {
               )}
             </div>
           </div>
+        </div>
+        <div className="chat-container">
+          <h1>Chat</h1>
+          <Question
+            title="What is the big deal with React.js?"
+            text="What are some facts about why react is superior ?"
+          />
+          <Question title="Is React.js worth it?" text="Let us know" />
+          <Question
+            title="Shoul I learn React.js or Vue.js?"
+            text="Basically is it worth it if I learn Vue.js first then React.js?"
+          />
         </div>
       </div>
     </div>
