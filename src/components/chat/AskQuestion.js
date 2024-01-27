@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import ChatContext from "../../ChatContext";
+import { v4 as uuidv4 } from "uuid";
 import "./AskQuestion.css";
 
 const AskQuestion = ({ country }) => {
@@ -15,13 +16,33 @@ const AskQuestion = ({ country }) => {
   const addQuestionText = (e) => {
     setQuestionText(e.target.value);
   };
-  const added = (country) => {
-    const newCountryQuestion = { country, subject, questionText };
-    dispatch({
-      type: "ADD",
-      payload: newCountryQuestion,
-    });
+  const sendQuestion = (country) => {
+    const currentCountry = state.filter((el) => el.country === country);
+    // If there are questions attached to the current country
+    const addQuestion = {
+      country,
+      question: { id: uuidv4(), subject, questionText, answers: [] },
+    };
+    if (currentCountry.length > 0) {
+      dispatch({
+        type: "ADD_QUESTION",
+        payload: addQuestion,
+      });
+    }
+    // If is the first question for the current country
+    const newCountryQuestion = {
+      country,
+      questions: [{ id: uuidv4(), subject, questionText, answers: [] }],
+    };
+
+    if (currentCountry.length === 0) {
+      dispatch({
+        type: "ADD_FIRST_QUESTION",
+        payload: newCountryQuestion,
+      });
+    }
   };
+
   return (
     <div className="question-box">
       <div className="question-box__top">
@@ -40,7 +61,10 @@ const AskQuestion = ({ country }) => {
         >
           {questionText}
         </textarea>
-        <button className="add-question__btn" onClick={() => added(country)}>
+        <button
+          className="add-question__btn"
+          onClick={() => sendQuestion(country)}
+        >
           Add Question
         </button>
       </div>

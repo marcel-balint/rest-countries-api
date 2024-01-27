@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import format from "../../helpers";
 import backIcon from "../../images/back-icon.svg";
 import "./CountryDetail.css";
 import Question from "../chat/DisplayQuestion";
 import AskQuestion from "../chat/AskQuestion";
+import ChatContext from "../../ChatContext";
 
 const CountryDetail = ({ theme }) => {
   const [country, setCountry] = useState(null);
@@ -13,10 +14,11 @@ const CountryDetail = ({ theme }) => {
   const [borderCountries, setBorderCounties] = useState([]);
   const [linkedBorderCountry, setLinkedBorderCountry] = useState(null);
 
+  const { state } = useContext(ChatContext);
   const { name } = useParams();
   const languagesArray = [];
   const boderCountriesInitArray = [];
-
+  console.log(state);
   const getCountry = async (url) => {
     try {
       setCountry(null);
@@ -73,6 +75,12 @@ const CountryDetail = ({ theme }) => {
       );
     }
   }, [linkedBorderCountry]);
+
+  // Display the country questions
+  const currentCountryQuestions = state?.find(
+    (el) => el.country === country?.[0].name.common
+  );
+
   return (
     <div
       className={`detail-container`}
@@ -151,17 +159,17 @@ const CountryDetail = ({ theme }) => {
           </div>
         </div>
         <div className="chat-container">
+          xOccaecat labore voluptate minim officia sint do sit laboris.
           <h1 className="main-title">Chat</h1>
           <AskQuestion country={country?.[0].name.common} />
-          <Question
-            title="What is the big deal with React.js?"
-            text="What are some facts about why react is superior ?"
-          />
-          <Question title="Is React.js worth it?" text="Let us know" />
-          <Question
-            title="Shoul I learn React.js or Vue.js?"
-            text="Basically is it worth it if I learn Vue.js first then React.js?"
-          />
+          {currentCountryQuestions
+            ? currentCountryQuestions?.questions?.map((question) => (
+                <Question
+                  title={question.subject}
+                  text={question.questionText}
+                />
+              ))
+            : "No questions yet. Ask a question!"}
         </div>
       </div>
     </div>

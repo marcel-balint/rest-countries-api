@@ -4,10 +4,16 @@ const reducer = (state, action) => {
   }
   const newState = [...state];
 
-  console.log(action);
   switch (action.type) {
-    case "ADD":
+    case "ADD_FIRST_QUESTION":
       newState.push(action.payload);
+      console.log(newState);
+      break;
+    case "ADD_QUESTION":
+      const country = newState.filter(
+        (el) => el.country === action.payload.country
+      );
+      country[0].questions.push(action.payload.question);
       console.log(newState);
       break;
 
