@@ -73,7 +73,6 @@ const CountryDetail = ({ theme }) => {
       );
     }
   }, [linkedBorderCountry]);
-  console.log(country?.[0].name.common);
   return (
     <div
       className={`detail-container`}
@@ -153,7 +152,7 @@ const CountryDetail = ({ theme }) => {
         </div>
         <div className="chat-container">
           <h1 className="main-title">Chat</h1>
-          <AskQuestion />
+          <AskQuestion country={country?.[0].name.common} />
           <Question
             title="What is the big deal with React.js?"
             text="What are some facts about why react is superior ?"
