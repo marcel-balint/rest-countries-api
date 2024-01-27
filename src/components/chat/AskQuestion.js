@@ -1,13 +1,13 @@
 import React, { useState, useContext } from "react";
-import ThemeContext from "../../ChatContext";
+import ChatContext from "../../ChatContext";
 import "./AskQuestion.css";
 
 const AskQuestion = ({ country }) => {
   const [subject, setSubject] = useState("");
   const [questionText, setQuestionText] = useState("");
 
-  const { state, dispatch } = useContext(ThemeContext);
-  console.log(state);
+  const { state, dispatch } = useContext(ChatContext);
+
   const addSubject = (e) => {
     setSubject(e.target.value);
   };
@@ -16,24 +16,16 @@ const AskQuestion = ({ country }) => {
     setQuestionText(e.target.value);
   };
   const added = (country) => {
-    // setCountriesChat((prevSate) => {
-    //   const newState = [...prevSate];
-    //   newState.push(country);
-    //   return newState;
-    // });
+    const newCountryQuestion = { country, subject, questionText };
+    dispatch({
+      type: "ADD",
+      payload: newCountryQuestion,
+    });
   };
   return (
     <div className="question-box">
-      {/* <p>
-        Subject:
-        {questionAdded?.subject}{" "}
-      </p>
-      <p>
-        Text:
-        {questionAdded?.questionText}{" "}
-      </p> */}
       <div className="question-box__top">
-        <p>Subject:</p>{" "}
+        <p>Subject:</p>
         <input
           type="text"
           value={subject}

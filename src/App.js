@@ -15,8 +15,6 @@ function App() {
   const [filterTerm, setFilterTerm] = useState("");
   const [theme, setTheme] = useState(false);
   const [error, setError] = useState(false);
-  const [countriesChat, setCountriesChat] = useState([]);
-
   const [contextValue, setContextValue] = useReducer(reducer, state);
 
   const getCountries = async (url) => {
