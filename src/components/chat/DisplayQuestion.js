@@ -17,6 +17,12 @@ const Question = (props) => {
     setShowModal((prevValue) => !prevValue);
   };
 
+  // Validation
+  let inputValid = true;
+  if (editedQuestion.trim().length < 3) {
+    inputValid = false;
+  }
+
   const hideOnBackdrop = (e) => {
     const modal = e.target;
     modal.classList.remove("active");
@@ -24,9 +30,13 @@ const Question = (props) => {
 
   const editQuestion = (e) => {
     setEditedQuestion(e.target.value);
+    console.log(editedQuestion.length);
   };
 
   const sendQuestion = () => {
+    if (editedQuestion.length < 3) {
+      return;
+    }
     const editedData = {
       country: props.country,
       id: props.id,
@@ -36,6 +46,7 @@ const Question = (props) => {
       type: "EDIT_QUESTION",
       payload: editedData,
     });
+    setShowModal((prevValue) => !prevValue);
   };
 
   return (
@@ -62,6 +73,14 @@ const Question = (props) => {
         onClick={hideOnBackdrop}
       >
         <div className="modal-content">
+          {!inputValid ? (
+            <p className="error-edit-post">
+              Question must have at least 3 characters.
+            </p>
+          ) : (
+            ""
+          )}
+
           <span className="close" onClick={toggleModal}>
             &#10005;
           </span>
@@ -75,7 +94,7 @@ const Question = (props) => {
             ></textarea>
           </div>
           <div className="modal-btns">
-            <button type="submit" onClick={sendQuestion}>
+            <button type="submit" onClick={sendQuestion} disabled={!inputValid}>
               Save
             </button>
           </div>
