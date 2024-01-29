@@ -18,7 +18,7 @@ const CountryDetail = ({ theme }) => {
   const { name } = useParams();
   const languagesArray = [];
   const boderCountriesInitArray = [];
-  console.log(state);
+
   const getCountry = async (url) => {
     try {
       setCountry(null);
@@ -76,7 +76,7 @@ const CountryDetail = ({ theme }) => {
     }
   }, [linkedBorderCountry]);
 
-  // Display the country
+  // Display the current country
   const currentCountry = state?.find(
     (el) => el.country === country?.[0].name.common
   );
@@ -164,6 +164,7 @@ const CountryDetail = ({ theme }) => {
           {currentCountry
             ? currentCountry?.questions?.map((question) => (
                 <Question
+                  key={question.id}
                   id={question.id}
                   title={question.subject}
                   text={question.questionText}

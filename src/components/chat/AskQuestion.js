@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import ChatContext from "../../ChatContext";
 import { v4 as uuidv4 } from "uuid";
 import "./AskQuestion.css";
@@ -6,6 +6,7 @@ import "./AskQuestion.css";
 const AskQuestion = ({ country }) => {
   const [subject, setSubject] = useState("");
   const [questionText, setQuestionText] = useState("");
+  const [changeState, setChangeState] = useState(false);
   const [enteredSubjectTouched, setEnterdSubjectTouched] = useState(false);
   const [enteredQuestionTouched, setEnterdQuestionTouched] = useState(false);
 
@@ -48,10 +49,32 @@ const AskQuestion = ({ country }) => {
     }
   };
 
+  const scrollToBottom = useRef(false);
+
+  // Effect to scroll to the bottom when scrollToBottom ref is true
+  useEffect(() => {
+    if (scrollToBottom.current) {
+      window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+      scrollToBottom.current = false; // Reset the ref
+    } else {
+      window.scrollTo({
+        top: 0,
+        // behavior: "smooth",
+      });
+    }
+  }, [changeState]);
+
   const sendQuestion = (country) => {
     if (!(subject.trim().length > 2) && !(questionText.trim().length > 2)) {
       return false;
     }
+
+    // Set the ref to true to trigger scrolling
+    scrollToBottom.current = true;
+    setChangeState((prevValue) => !prevValue);
 
     const currentCountry = state.filter((el) => el.country === country);
     // If there are questions attached to the current country
