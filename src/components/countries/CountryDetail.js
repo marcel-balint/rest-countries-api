@@ -166,6 +166,7 @@ const CountryDetail = ({ theme }) => {
                 <Question
                   title={question.subject}
                   text={question.questionText}
+                  id={question.id}
                 />
               ))
             : "No questions yet. Ask a question!"}
