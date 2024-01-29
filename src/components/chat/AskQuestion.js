@@ -13,7 +13,7 @@ const AskQuestion = ({ country }) => {
   // Input fields validation
   let subjectInputIsValid = subject.trim().length > 2;
   let questionInputIsValid = questionText.trim().length > 2;
-  // Check if input is touched and input has desired number of characters
+  // Check if input is touched and input has required number of characters
   let subjectInputIsInvalid = !subjectInputIsValid && enteredSubjectTouched;
   let questionInputIsInvalid = !questionInputIsValid && enteredQuestionTouched;
 
@@ -40,10 +40,19 @@ const AskQuestion = ({ country }) => {
     setQuestionText(e.target.value);
   };
 
+  // Send question on 'Enter' key press
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter" && inputsValid) {
+      e.target.blur(); // Remove focus after 'Enter' is pressed
+      sendQuestion(country);
+    }
+  };
+
   const sendQuestion = (country) => {
     if (!(subject.trim().length > 2) && !(questionText.trim().length > 2)) {
       return false;
     }
+
     const currentCountry = state.filter((el) => el.country === country);
     // If there are questions attached to the current country
     const addQuestion = {
@@ -100,6 +109,7 @@ const AskQuestion = ({ country }) => {
             value={subject}
             onInput={addSubject}
             onBlur={blurSubjectHandler}
+            onKeyDown={handleKeyPress}
             placeholder="Type topic subject..."
           />
         </div>
@@ -109,6 +119,7 @@ const AskQuestion = ({ country }) => {
             className={questionInputClasses}
             onChange={addQuestionText}
             onBlur={blurQuestionHandler}
+            onKeyDown={handleKeyPress}
             value={questionText}
           ></textarea>
           <button
