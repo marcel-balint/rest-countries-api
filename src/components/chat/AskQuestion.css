@@ -16,6 +16,7 @@
     width: 92%;
     margin-right: 1px;
     font-size: 1rem;
+    font-weight: bold;
     box-shadow: none;
 }
 
@@ -55,4 +56,20 @@
 
 .add-question__btn:hover {
     box-shadow: 1px 1px 3px 2px #ccc;
+}
+.input-invalid {
+    border: 1px solid #b40e0e;
+    background-color: #fddddd;
+}
+
+
+.error-text_subject {
+    margin-top: -35px;
+    font-weight: bold;
+    color: #b40e0e;
+}
+
+.error_question {
+    margin-top: -23px;
+    margin-bottom: 4px;
 }

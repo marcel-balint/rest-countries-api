@@ -159,8 +159,7 @@ const CountryDetail = ({ theme }) => {
           </div>
         </div>
         <div className="chat-container">
-          xOccaecat labore voluptate minim officia sint do sit laboris.
-          <h1 className="main-title">Chat</h1>
+          <h2 className="main-title">Chat</h2>
           <AskQuestion country={country?.[0].name.common} />
           {currentCountryQuestions
             ? currentCountryQuestions?.questions?.map((question) => (

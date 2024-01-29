@@ -101,6 +101,7 @@
 
 .main-title {
     text-align: start;
+    margin-bottom: 3rem;
 }
 @media only screen and (max-width: 1050px) {
     .country-box{

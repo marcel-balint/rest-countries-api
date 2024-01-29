@@ -10,6 +10,7 @@ const reducer = (state, action) => {
       console.log(newState);
       break;
     case "ADD_QUESTION":
+      // Add a question to incoming country
       const country = newState.filter(
         (el) => el.country === action.payload.country
       );
