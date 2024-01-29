@@ -1,0 +1,10 @@
+.reaction-like {
+    display: flex;
+    align-items: center;
+}
+
+.reaction-like img {
+    height: 1.2rem;
+    margin-right: .5rem;
+    cursor: pointer;
+}

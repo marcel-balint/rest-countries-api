@@ -2,4 +2,55 @@
     display: flex;
     align-items: baseline;
     flex-direction: column;
+    box-shadow: 1px 1px 2px 1px #ccc;
+        margin-bottom: 2rem;
+        padding: 0.5rem;
+        position: relative;
+        border-radius: 3px;
+    }
+    
+    .question-title {
+        margin-bottom: 0px;
+    }
+    
+    .question-reactions {
+        display: flex;
+    }
+    
+    .reaction-answer {
+        display: flex;
+        align-items: center;
+        height: 2.2rem;
+        max-width: 5.5rem;
+        margin-right: 1rem;
+        cursor: pointer;
+        padding: 0px 20px 0px 12px;
+        border: 1px solid #000;
+        border-radius: 10rem;
+        font-weight: 500;
+    }
+    
+    .reaction-answer:hover {
+        box-shadow: rgba(177, 179, 182, 0.2) 2px 2px 2px 2px inset;
+    }
+    
+    .reaction-answer img {
+        height: 1.2rem;
+        margin-right: .5rem;
+    }
+    
+    .edit-icon {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    
+    .edit-icon img {
+        height: 1.2rem;
+        margin-right: .3rem;
 }
