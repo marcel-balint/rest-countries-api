@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import answerIcon from "../../images/answer-icon.svg";
 import editIcon from "../../images/edit-icon.svg";
 import { Likes } from "./Likes";
+import ChatContext from "../../ChatContext";
 
 import "./DisplayQuestion.css";
 import Answer from "./Answer";
@@ -9,6 +10,8 @@ import Answer from "./Answer";
 const Question = (props) => {
   const [editedQuestion, setEditedQuestion] = useState(props.text);
   const [showModal, setShowModal] = useState(false);
+
+  const { dispatch } = useContext(ChatContext);
 
   const toggleModal = () => {
     setShowModal((prevValue) => !prevValue);
@@ -18,6 +21,23 @@ const Question = (props) => {
     const modal = e.target;
     modal.classList.remove("active");
   };
+
+  const editQuestion = (e) => {
+    setEditedQuestion(e.target.value);
+  };
+
+  const sendQuestion = () => {
+    const editedData = {
+      country: props.country,
+      id: props.id,
+      question: editedQuestion,
+    };
+    dispatch({
+      type: "EDIT_QUESTION",
+      payload: editedData,
+    });
+  };
+
   return (
     <>
       <div className="question">
@@ -47,10 +67,15 @@ const Question = (props) => {
           </span>
           <div className="modal-text">
             <h2>Edit Post</h2>
-            <textarea cols="30" rows="10" value={props.text}></textarea>
+            <textarea
+              cols="30"
+              rows="10"
+              value={editedQuestion}
+              onChange={editQuestion}
+            ></textarea>
           </div>
           <div className="modal-btns">
-            <button type="submit" onClick={toggleModal}>
+            <button type="submit" onClick={sendQuestion}>
               Save
             </button>
           </div>

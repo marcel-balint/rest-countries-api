@@ -76,8 +76,8 @@ const CountryDetail = ({ theme }) => {
     }
   }, [linkedBorderCountry]);
 
-  // Display the country questions
-  const currentCountryQuestions = state?.find(
+  // Display the country
+  const currentCountry = state?.find(
     (el) => el.country === country?.[0].name.common
   );
 
@@ -161,12 +161,13 @@ const CountryDetail = ({ theme }) => {
         <div className="chat-container">
           <h2 className="main-title">Chat</h2>
           <AskQuestion country={country?.[0].name.common} />
-          {currentCountryQuestions
-            ? currentCountryQuestions?.questions?.map((question) => (
+          {currentCountry
+            ? currentCountry?.questions?.map((question) => (
                 <Question
+                  id={question.id}
                   title={question.subject}
                   text={question.questionText}
-                  id={question.id}
+                  country={currentCountry}
                 />
               ))
             : "No questions yet. Ask a question!"}
