@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import answerIcon from "../../images/answer-icon.svg";
 import editIcon from "../../images/edit-icon.svg";
 import { Likes } from "./Likes";
