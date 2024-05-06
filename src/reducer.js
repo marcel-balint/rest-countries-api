@@ -26,9 +26,39 @@ const reducer = (state, action) => {
       theQuestion[0].questionText = action.payload.question;
       break;
 
+    case "ADD_ANSWER":
+      console.log(action.country);
+      // Find the country
+      const countryWithQuestion = newState.find(
+        (el) => el.country === action.country.country
+      );
+      console.log(countryWithQuestion);
+
+      if (countryWithQuestion) {
+        // Find the question within the country
+        const question = countryWithQuestion.questions.find(
+          (q) => q.id === action.questionId
+        );
+
+        if (question) {
+          // Add the answer to the question
+          question.answers.push(action.answer);
+        }
+      }
+      break;
+
+    case "TOGGLE_ANSWER_FIELD":
+      newState[0].answerFieldVisible = action.payload;
+      break;
+
+    case "CLOSE_ANSWER_FIELD":
+      newState[0].answerFieldVisible = action.payload;
+      break;
+
     default:
       return state;
   }
+  console.log(newState);
   return newState;
 };
 

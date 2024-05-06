@@ -10,6 +10,7 @@ import Answer from "./Answer";
 const Question = (props) => {
   const [editedQuestion, setEditedQuestion] = useState(props.text);
   const [showModal, setShowModal] = useState(false);
+  const [hideAddButton, setHideAddButton] = useState(false);
 
   const { dispatch } = useContext(ChatContext);
 
@@ -17,6 +18,9 @@ const Question = (props) => {
     setShowModal((prevValue) => !prevValue);
   };
 
+  const showAnswerField = () => {
+    setHideAddButton((prevState) => !prevState);
+  };
   // Validation
   let inputValid = true;
   if (editedQuestion.trim().length < 3) {
@@ -59,12 +63,22 @@ const Question = (props) => {
         <p className="question-definition">{props.text}</p>
         <div className="question-reactions">
           <p className="reaction-answer">
-            <img src={answerIcon} alt="Answer" /> <span>Answer</span>
+            <img src={answerIcon} alt="Answer" />{" "}
+            <span onClick={showAnswerField}>Answer</span>
           </p>
           <Likes />
         </div>
-
-        {/* <Answer answer="The first answer" /> */}
+        {hideAddButton ? (
+          <Answer
+            toggleAddButton={showAnswerField}
+            buttonState={hideAddButton}
+            country={props.country}
+            questionId={props.id}
+            answer="The first answer"
+          />
+        ) : (
+          ""
+        )}
       </div>
       {/* Edit Question Modal */}
       <div
