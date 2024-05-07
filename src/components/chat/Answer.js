@@ -23,7 +23,9 @@ const Answer = (props) => {
 
   return (
     <>
-      <p>{props.answer}</p>
+      {props.answer.map((el) => (
+        <p>{el}</p>
+      ))}
       {/* <Likes /> */}
       {comment !== "" && <p>{comment}</p>}
       {props.buttonState ? (
@@ -31,10 +33,10 @@ const Answer = (props) => {
           <input
             type="text"
             value={input}
-            placeholder="Reply..."
+            placeholder="Add a Reply..."
             onChange={(e) => setInput(e.target.value)}
           />
-          <button type="submit">Add</button>
+          <button type="submit">Reply</button>
         </form>
       ) : (
         ""

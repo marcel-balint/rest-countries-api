@@ -32,7 +32,6 @@ const reducer = (state, action) => {
       const countryWithQuestion = newState.find(
         (el) => el.country === action.country.country
       );
-      console.log(countryWithQuestion);
 
       if (countryWithQuestion) {
         // Find the question within the country

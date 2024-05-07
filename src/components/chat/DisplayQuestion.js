@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import answerIcon from "../../images/answer-icon.svg";
 import editIcon from "../../images/edit-icon.svg";
 import { Likes } from "./Likes";
@@ -11,6 +11,7 @@ const Question = (props) => {
   const [editedQuestion, setEditedQuestion] = useState(props.text);
   const [showModal, setShowModal] = useState(false);
   const [hideAddButton, setHideAddButton] = useState(false);
+  const [answers, setAnswers] = useState([]);
 
   const { dispatch } = useContext(ChatContext);
 
@@ -52,6 +53,20 @@ const Question = (props) => {
     setShowModal((prevValue) => !prevValue);
   };
 
+  const getAnswers = () => {
+    // Find the country
+    const countryQuestions = props.country.questions;
+    // Find the question
+    const question = countryQuestions.find((el) => el.id === props.id);
+    // Find question answers
+    const answers = question.answers.map((el) => el);
+    setAnswers(answers);
+  };
+
+  useEffect(() => {
+    getAnswers();
+  }, [hideAddButton]);
+
   return (
     <>
       <div className="question">
@@ -68,17 +83,14 @@ const Question = (props) => {
           </p>
           <Likes />
         </div>
-        {hideAddButton ? (
-          <Answer
-            toggleAddButton={showAnswerField}
-            buttonState={hideAddButton}
-            country={props.country}
-            questionId={props.id}
-            answer="The first answer"
-          />
-        ) : (
-          ""
-        )}
+
+        <Answer
+          toggleAddButton={showAnswerField}
+          buttonState={hideAddButton}
+          country={props.country}
+          questionId={props.id}
+          answer={answers}
+        />
       </div>
       {/* Edit Question Modal */}
       <div
