@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Likes } from "./Likes";
 import ChatContext from "../../ChatContext";
+import "./Answer.css";
 
 const Answer = (props) => {
   const [comment, setComment] = useState("");
@@ -24,12 +25,14 @@ const Answer = (props) => {
   return (
     <>
       {props.answer.map((el) => (
-        <p>{el}</p>
+        <div className="answer-text">
+          <p>{el}</p>
+        </div>
       ))}
       {/* <Likes /> */}
       {comment !== "" && <p>{comment}</p>}
       {props.buttonState ? (
-        <form onSubmit={submitAswer}>
+        <form className="form-add_answer" onSubmit={submitAswer}>
           <input
             type="text"
             value={input}

@@ -1,0 +1,32 @@
+.form-add_answer {
+    margin-top: 1rem;
+    margin-left: 0;
+}
+
+.form-add_answer input {
+    border-radius: 10rem;
+}
+
+.form-add_answer button {
+    border-radius: 9rem;
+    margin-left: .5rem;
+    border: 1px solid #000;
+    width: 5rem;
+    font-size: 1rem;
+}
+
+.answer-text {
+    width: 100%;
+    background: #eee;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.answer-text p {
+    margin-left: 3rem;
+    width: 90%;
+}
