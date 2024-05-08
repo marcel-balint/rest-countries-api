@@ -28,6 +28,7 @@ function App() {
       }
       const data = await response.json();
       setCountries(data);
+      console.log(data);
     } catch (error) {
       setCountries([]);
       setError(true);

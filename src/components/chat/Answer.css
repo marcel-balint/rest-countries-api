@@ -1,6 +1,8 @@
 .form-add_answer {
     margin-top: 1rem;
     margin-left: 0;
+    position: absolute;
+        top: 10rem;
 }
 
 .form-add_answer input {
@@ -13,20 +15,26 @@
     border: 1px solid #000;
     width: 5rem;
     font-size: 1rem;
+    cursor: pointer;
+    }
+    
+    .form-add_answer button:hover {
+        box-shadow: rgba(177, 179, 182, 0.2) 2px 2px 2px 2px inset;
 }
 
 .answer-text {
-    width: 100%;
+    width: 90%;
     background: #eee;
     display: flex;
-    justify-content: flex-start;
+        align-self: end;
     margin-bottom: 0.5rem;
     margin-top: 1rem;
     word-wrap: break-word;
     text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .answer-text p {
-    margin-left: 3rem;
+    padding-left: 1rem;
     width: 90%;
 }

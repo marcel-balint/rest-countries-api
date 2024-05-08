@@ -1,17 +1,17 @@
 import React, { useState, useContext } from "react";
-import { Likes } from "./Likes";
 import ChatContext from "../../ChatContext";
 import "./Answer.css";
 
 const Answer = (props) => {
-  const [comment, setComment] = useState("");
   const [input, setInput] = useState("");
 
-  const { state, dispatch } = useContext(ChatContext);
+  const { dispatch } = useContext(ChatContext);
 
   const submitAswer = (e) => {
     e.preventDefault();
-    // setComment(input);
+    if (input.length === 0) {
+      return;
+    }
     dispatch({
       type: "ADD_ANSWER",
       questionId: props.questionId,
@@ -25,12 +25,10 @@ const Answer = (props) => {
   return (
     <>
       {props.answer.map((el) => (
-        <div className="answer-text">
+        <div className="answer-text" key={el}>
           <p>{el}</p>
         </div>
       ))}
-      {/* <Likes /> */}
-      {comment !== "" && <p>{comment}</p>}
       {props.buttonState ? (
         <form className="form-add_answer" onSubmit={submitAswer}>
           <input
@@ -39,7 +37,9 @@ const Answer = (props) => {
             placeholder="Add a Reply..."
             onChange={(e) => setInput(e.target.value)}
           />
-          <button type="submit">Reply</button>
+          <button disabled={input.length === 0} type="submit">
+            Reply
+          </button>
         </form>
       ) : (
         ""
