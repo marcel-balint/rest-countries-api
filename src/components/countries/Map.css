@@ -3,3 +3,14 @@
     width: 60%;
     height: 33rem;
 }
+@media only screen and (max-width: 1050px) {
+    .map-box {
+        width: unset;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .map-box {
+        display: none;
+    }
+}

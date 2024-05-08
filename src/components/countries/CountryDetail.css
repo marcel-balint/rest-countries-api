@@ -109,6 +109,9 @@
     .country-box{
         gap: 3rem;
     }
+                                .country-info {
+                                    flex-direction: column;
+                                }
    }
 
    @media only screen and (max-width: 870px) {
@@ -123,7 +126,8 @@
     }
     .country-box{
         flex-direction: column;
-        padding-bottom: 3rem;
+        padding-bottom: 0rem;
+            margin-bottom: 4rem;
      
     }
    }
