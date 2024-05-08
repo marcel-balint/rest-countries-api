@@ -34,7 +34,7 @@
 .country-box{
     display: flex;
     gap: 6rem;
-    margin-bottom: 5rem;
+    margin-bottom: 7rem;
 }
 
 .country-flag {
@@ -99,6 +99,11 @@
 .main-title {
     text-align: start;
     margin-bottom: 3rem;
+}
+.country-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
 }
 @media only screen and (max-width: 1050px) {
     .country-box{

@@ -1,8 +1,9 @@
 import React from "react";
+import "./Map.css";
 
 const Map = ({ country }) => {
   return (
-    <div>
+    <div className="map-box">
       <iframe
         src={`https://maps.google.com/maps?q=${country}&hl=en&z=3&amp;output=embed`}
         width="100%"

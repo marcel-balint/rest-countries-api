@@ -7,6 +7,7 @@ import Question from "../chat/DisplayQuestion";
 import AskQuestion from "../chat/AskQuestion";
 import ChatContext from "../../ChatContext";
 import Map from "./Map";
+import CountryNews from "../news/CountryNews";
 
 const CountryDetail = ({ theme }) => {
   const [country, setCountry] = useState(null);
@@ -159,7 +160,10 @@ const CountryDetail = ({ theme }) => {
             </div>
           </div>
         </div>
-        <Map country={country?.[0].name.common} />
+        <div className="country-info">
+          <Map country={country?.[0].name.common} />
+          <CountryNews />
+        </div>
         <div className="chat-container">
           <h2 className="main-title">Chat</h2>
           <AskQuestion country={country?.[0].name.common} />
