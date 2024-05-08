@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/rest-countries-api/static/css/main.f4746e1d.css",
-    "main.js": "/rest-countries-api/static/js/main.3223c9ae.js",
-    "static/js/787.7ab103b3.chunk.js": "/rest-countries-api/static/js/787.7ab103b3.chunk.js",
+    "main.css": "/rest-countries-api/static/css/main.fd491307.css",
+    "main.js": "/rest-countries-api/static/js/main.8f697be6.js",
+    "static/js/453.0a5b66dc.chunk.js": "/rest-countries-api/static/js/453.0a5b66dc.chunk.js",
     "static/media/icon-sun.svg": "/rest-countries-api/static/media/icon-sun.a0ebcc6f40198155c7ca537e6714cc52.svg",
     "static/media/like-empty-icon.svg": "/rest-countries-api/static/media/like-empty-icon.83bdee53de9f19436da4216000438b2f.svg",
     "static/media/like-filled-icon.svg": "/rest-countries-api/static/media/like-filled-icon.fbe8612782ade7115a943a81a2fd0438.svg",
@@ -12,12 +12,12 @@
     "static/media/icon-moon.svg": "/rest-countries-api/static/media/icon-moon.9d5acf208407290a259e80c469b80667.svg",
     "static/media/answer-icon.svg": "/rest-countries-api/static/media/answer-icon.813469739d6d43c2a30547819122a45f.svg",
     "static/media/edit-icon.svg": "/rest-countries-api/static/media/edit-icon.23b360e1acebe457a6f5d43299aeeb60.svg",
-    "main.f4746e1d.css.map": "/rest-countries-api/static/css/main.f4746e1d.css.map",
-    "main.3223c9ae.js.map": "/rest-countries-api/static/js/main.3223c9ae.js.map",
-    "787.7ab103b3.chunk.js.map": "/rest-countries-api/static/js/787.7ab103b3.chunk.js.map"
+    "main.fd491307.css.map": "/rest-countries-api/static/css/main.fd491307.css.map",
+    "main.8f697be6.js.map": "/rest-countries-api/static/js/main.8f697be6.js.map",
+    "453.0a5b66dc.chunk.js.map": "/rest-countries-api/static/js/453.0a5b66dc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4746e1d.css",
-    "static/js/main.3223c9ae.js"
+    "static/css/main.fd491307.css",
+    "static/js/main.8f697be6.js"
   ]
 }
