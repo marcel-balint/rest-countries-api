@@ -1,6 +1,5 @@
 .news-box {
     width: 40%;
-    margin-top: -46px;
 }
 
 .news-box h2 {
@@ -12,8 +11,10 @@
 }
 
 .news-content {
+    height: 30rem;
     text-align: left;
     font-family: Arial, Helvetica, sans-serif;
+    overflow: auto;
 }
 
 .news-content a {
@@ -26,16 +27,28 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     word-break: break-all;
+    background-color: #f0eded;
+        height: 100px;
+        margin-top: 1rem;
+        position: relative;
+        color: #635f5f;
 }
 
 .news-card h3 {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-align: left;
-    font-weight: 400;
-    line-height: 1rem;
+    font-weight: 100;
+        line-height: 1.2rem;
 }
 
 .news-card p {
     margin-bottom: 0;
+}
+.news-card img {
+    height: 2rem;
+    width: 5rem;
+    display: flex;
+    align-self: flex-end;
+    margin-bottom: .3rem;
 }
