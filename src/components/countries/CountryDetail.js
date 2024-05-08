@@ -159,7 +159,7 @@ const CountryDetail = ({ theme }) => {
             </div>
           </div>
         </div>
-        <Map />
+        <Map country={country?.[0].name.common} />
         <div className="chat-container">
           <h2 className="main-title">Chat</h2>
           <AskQuestion country={country?.[0].name.common} />
