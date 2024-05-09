@@ -34,11 +34,15 @@
 
 .country-detail_link{
     text-decoration: none;
-    color: #000;
+    color: #Fff;
+        font-weight: bold;
+        font-size: 1.1rem;
 }
 
 .country-detail_link:hover{
     font-weight: bold;
+    background-color: #eae8e8;
+        color: #000;
 }
 
 @media only screen and (max-width: 825px) {

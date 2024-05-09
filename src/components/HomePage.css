@@ -5,6 +5,7 @@
 .home-page_content{
     width: 80%;
     margin: auto;
+    opacity: 0.9;
 }
 
 .home-page_top {
@@ -23,10 +24,29 @@
     min-height: 57vh;
 }
 
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+
+}
 .no-results {
     width: 100%;
+    color: #fff;
+        font-weight: bold;
 }
 
+.pagination {
+    background-color: #eae8e8;
+    position: relative;
+    z-index: 1;
+}
 .pagination-content {
     display: flex;
     justify-content: space-between;
@@ -34,6 +54,10 @@
     margin: auto;
     align-items: center;
     padding-bottom: 5rem;
+    background-color: #eae8e8;
+        color: #000;
+        z-index: 12;
+        position: relative;
   }
   
   .prev-btn,
@@ -44,7 +68,7 @@
   .light {
     color: #ccc;
   }
-  
+
   @media only screen and (max-width: 1600px) {
    .home-page_bottom{
     gap: 3rem;

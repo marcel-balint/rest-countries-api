@@ -4,6 +4,7 @@ import Filter from "./Filter";
 import Countries from "./countries/Countries";
 import usePagination from "./usePagination";
 import "./HomePage.css";
+import backgroundVid from "../videos/video.mp4";
 
 const HomePage = ({
   countries,
@@ -26,6 +27,9 @@ const HomePage = ({
       style={{ backgroundColor: `${theme ? "rgb(113 113 113)" : ""}` }}
     >
       <div className="home-page_content">
+        <video id="background-video" autoPlay loop muted>
+          <source src={backgroundVid} type="video/mp4" />
+        </video>
         <div className="home-page_top">
           <SearchBar
             searchTerm={searchTerm}
