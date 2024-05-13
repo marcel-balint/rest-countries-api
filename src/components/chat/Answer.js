@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
 import ChatContext from "../../ChatContext";
 import "./Answer.css";
+import { Likes } from "./Likes";
+import AnswerItem from "./AnswerItem";
 
 const Answer = (props) => {
   const [input, setInput] = useState("");
-
   const { dispatch } = useContext(ChatContext);
 
   const submitAswer = (e) => {
@@ -24,10 +25,8 @@ const Answer = (props) => {
 
   return (
     <>
-      {props.answer.map((el) => (
-        <div className="answer-text" key={el}>
-          <p>{el}</p>
-        </div>
+      {props.answer.map((answer) => (
+        <AnswerItem answer={answer} />
       ))}
       {props.buttonState ? (
         <form className="form-add_answer" onSubmit={submitAswer}>
@@ -37,7 +36,11 @@ const Answer = (props) => {
             placeholder="Add a Reply..."
             onChange={(e) => setInput(e.target.value)}
           />
-          <button disabled={input.length === 0} type="submit">
+          <button
+            disabled={input.length === 0}
+            style={{ fontWeight: `${input.length !== 0 ? "bold" : ""}` }}
+            type="submit"
+          >
             Reply
           </button>
         </form>

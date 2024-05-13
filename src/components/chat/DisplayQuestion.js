@@ -56,10 +56,11 @@ const Question = (props) => {
   const getAnswers = () => {
     // Find the country
     const countryQuestions = props.country.questions;
-    // Find the question
-    const question = countryQuestions.find((el) => el.id === props.id);
+    // Find the questions
+    const questions = countryQuestions.find((el) => el.id === props.id);
+    console.log(questions);
     // Find question answers
-    const answers = question.answers.map((el) => el);
+    const answers = questions.answers.map((el) => el);
     setAnswers(answers);
   };
 

@@ -27,6 +27,7 @@
     background: #eee;
     display: flex;
         align-self: end;
+        flex-direction: column;
     margin-bottom: 0.5rem;
     margin-top: 1rem;
     word-wrap: break-word;
@@ -37,4 +38,77 @@
 .answer-text p {
     padding-left: 1rem;
     width: 90%;
+}
+.answer-reactions {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    margin-top: -1rem;
+}
+
+
+.answer-reactions p {
+    font-size: .9rem;
+    width: 3rem;
+}
+
+.answer-reactions span {
+    margin-right: .1rem;
+}
+
+.answer-reactions img {
+    margin-right: .2rem;
+}
+
+.answer-reactions .reaction-like {
+    display: flex;
+    align-items: end;
+}
+
+.answer-reactions p:nth-child(2) {
+    padding: .3rem .3rem .3rem .3rem;
+    text-align: center;
+    margin-top: 1.1rem;
+}
+
+.answer-reactions p:nth-child(2):hover {
+    cursor: pointer;
+    background-color: #fff;
+    border-radius: 30%;
+}
+
+.form-add_reply {
+    padding-bottom: .3rem;
+}
+
+.form-add_reply input {
+    padding-left: 1rem;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: 500;
+    width: 60%;
+    border: none;
+    outline: none;
+    box-shadow: 1px 1px 2px 1px #ccc;
+    border-radius: 10rem;
+}
+
+.form-add_reply button {
+    border-radius: 9rem;
+    margin-left: 0.3rem;
+    border: 1px solid #000;
+    width: 4rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.form-add_reply button:hover {
+    box-shadow: rgba(177, 179, 182, 0.2) 2px 2px 2px 2px inset;
+}
+
+
+@media only screen and (max-width: 825px) {
+    .form-add_reply {
+        width: 100%;
+    }
 }
