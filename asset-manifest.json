@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rest-countries-api/static/css/main.2773eae0.css",
-    "main.js": "/rest-countries-api/static/js/main.2b272080.js",
+    "main.css": "/rest-countries-api/static/css/main.5be76907.css",
+    "main.js": "/rest-countries-api/static/js/main.75911835.js",
     "static/js/453.0a5b66dc.chunk.js": "/rest-countries-api/static/js/453.0a5b66dc.chunk.js",
     "static/media/video.mp4": "/rest-countries-api/static/media/video.aceee57c167bd4356a9d.mp4",
     "static/media/icon-sun.svg": "/rest-countries-api/static/media/icon-sun.a0ebcc6f40198155c7ca537e6714cc52.svg",
@@ -13,12 +13,12 @@
     "static/media/icon-moon.svg": "/rest-countries-api/static/media/icon-moon.9d5acf208407290a259e80c469b80667.svg",
     "static/media/answer-icon.svg": "/rest-countries-api/static/media/answer-icon.813469739d6d43c2a30547819122a45f.svg",
     "static/media/edit-icon.svg": "/rest-countries-api/static/media/edit-icon.23b360e1acebe457a6f5d43299aeeb60.svg",
-    "main.2773eae0.css.map": "/rest-countries-api/static/css/main.2773eae0.css.map",
-    "main.2b272080.js.map": "/rest-countries-api/static/js/main.2b272080.js.map",
+    "main.5be76907.css.map": "/rest-countries-api/static/css/main.5be76907.css.map",
+    "main.75911835.js.map": "/rest-countries-api/static/js/main.75911835.js.map",
     "453.0a5b66dc.chunk.js.map": "/rest-countries-api/static/js/453.0a5b66dc.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2773eae0.css",
-    "static/js/main.2b272080.js"
+    "static/css/main.5be76907.css",
+    "static/js/main.75911835.js"
   ]
 }
