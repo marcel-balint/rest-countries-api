@@ -58,7 +58,6 @@ const Question = (props) => {
     const countryQuestions = props.country.questions;
     // Find the questions
     const questions = countryQuestions.find((el) => el.id === props.id);
-    console.log(questions);
     // Find question answers
     const answers = questions.answers.map((el) => el);
     setAnswers(answers);

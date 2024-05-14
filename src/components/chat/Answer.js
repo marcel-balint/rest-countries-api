@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import ChatContext from "../../ChatContext";
 import "./Answer.css";
-import { Likes } from "./Likes";
 import AnswerItem from "./AnswerItem";
+import { v4 as uuidv4 } from "uuid";
 
 const Answer = (props) => {
   const [input, setInput] = useState("");
@@ -13,20 +13,30 @@ const Answer = (props) => {
     if (input.length === 0) {
       return;
     }
+    const answer = {
+      id: uuidv4(),
+      answerText: input,
+      replies: [],
+    };
     dispatch({
       type: "ADD_ANSWER",
       questionId: props.questionId,
       country: props.country,
-      answer: input,
+      answer: answer,
     });
     setInput("");
     props.toggleAddButton();
   };
-
   return (
     <>
       {props.answer.map((answer) => (
-        <AnswerItem answer={answer} />
+        <AnswerItem
+          answer={answer.answerText}
+          country={props.country}
+          questionId={props.questionId}
+          answerId={answer.id}
+          key={answer.id}
+        />
       ))}
       {props.buttonState ? (
         <form className="form-add_answer" onSubmit={submitAswer}>

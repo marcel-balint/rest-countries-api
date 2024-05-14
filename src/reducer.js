@@ -27,7 +27,6 @@ const reducer = (state, action) => {
       break;
 
     case "ADD_ANSWER":
-      console.log(action.country);
       // Find the country
       const countryWithQuestion = newState.find(
         (el) => el.country === action.country.country
@@ -52,6 +51,32 @@ const reducer = (state, action) => {
 
     case "CLOSE_ANSWER_FIELD":
       newState[0].answerFieldVisible = action.payload;
+      break;
+
+    case "REPLY_TO_ANSWER":
+      // Find the country
+      const countryWithReplies = newState.find(
+        (el) => el.country === action.payload.country.country
+      );
+      if (countryWithReplies) {
+        // Find the question within the country
+        const question = countryWithReplies.questions.find(
+          (q) => q.id === action.payload.questionId
+        );
+
+        if (question) {
+          // Find a certain answer by ID
+          const answer = question.answers.find(
+            (answer) => answer.id === action.payload.answerId
+          );
+          const reply = {
+            id: action.payload.replyId,
+            text: action.payload.replyText,
+          };
+          answer.replies.push(reply);
+        }
+      }
+
       break;
 
     default:
