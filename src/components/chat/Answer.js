@@ -10,7 +10,7 @@ const Answer = (props) => {
 
   const submitAswer = (e) => {
     e.preventDefault();
-    if (input.length === 0) {
+    if (input.trim().length === 0) {
       return;
     }
     const answer = {
@@ -43,12 +43,13 @@ const Answer = (props) => {
           <input
             type="text"
             value={input}
+            autoFocus={props.buttonState}
             placeholder="Add a Reply..."
             onChange={(e) => setInput(e.target.value)}
           />
           <button
-            disabled={input.length === 0}
-            style={{ fontWeight: `${input.length !== 0 ? "bold" : ""}` }}
+            disabled={input.trim().length === 0}
+            style={{ fontWeight: `${input.trim().length !== 0 ? "bold" : ""}` }}
             type="submit"
           >
             Reply

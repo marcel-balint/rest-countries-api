@@ -1,0 +1,10 @@
+.reply-text_box {
+    padding-bottom: 1rem;
+}
+
+.reply-text {
+    padding-left: 3rem;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-top: .2rem solid #fff;
+}
